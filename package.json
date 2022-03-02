@@ -6,7 +6,11 @@
   "repository": "https://github.com/nathan-folsom/optimistic-jotai.git",
   "author": "Nathan Folsom <n8folsom@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "build": "tsc"
+  },
   "devDependencies": {
+    "jotai": "^1.6.0",
     "typescript": "^4.6.2"
   }
 }
