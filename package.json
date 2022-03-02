@@ -6,11 +6,18 @@
   "repository": "https://github.com/nathan-folsom/optimistic-jotai.git",
   "author": "Nathan Folsom <n8folsom@gmail.com>",
   "license": "MIT",
+  "files": ["lib/**/*"],
   "scripts": {
     "build": "tsc"
   },
-  "devDependencies": {
+  "peerDependencies": {
     "jotai": "^1.6.0",
+    "react": "^17.0.2"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.39",
+    "jotai": "^1.6.0",
+    "react": "^17.0.2",
     "typescript": "^4.6.2"
   }
 }
