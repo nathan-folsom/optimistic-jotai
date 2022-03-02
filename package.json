@@ -1,0 +1,9 @@
+{
+  "name": "optimistic-jotai",
+  "version": "0.0.1",
+  "description": "optimistic state management for react",
+  "main": "index.js",
+  "repository": "https://github.com/nathan-folsom/optimistic-jotai.git",
+  "author": "Nathan Folsom <n8folsom@gmail.com>",
+  "license": "MIT"
+}
