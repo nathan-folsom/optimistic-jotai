@@ -1,14 +1,14 @@
-import { atom, Getter, Setter, WritableAtom } from "jotai";
-import { ListAction, ListEntityUpdate } from "./types";
+import { atom, Getter, Setter } from "jotai";
+import { ListAction, ListEntityUpdate, OptimisticListAtomType } from "./types";
 import { atomWithReset, RESET } from "jotai/utils";
 import { ActionType, Success } from "../common/types/actions";
 
-class OptimisticListAtom<T> {
+class OptimisticListItem<T extends Record<string, any>> {
   private listAtom = atom<T[]>([]);
   private actionAtom = atomWithReset<ListAction<T> | null>(null);
-  public optimisticAtom: WritableAtom<T[], ListAction<T>>;
+  public optimisticAtom: OptimisticListAtomType<T>;
 
-  constructor(private entityIdKey: keyof T) {
+  constructor(private entityIdKey: string) {
     this.optimisticAtom = atom(this.getAtom, this.setAtom);
   }
 
@@ -73,6 +73,6 @@ class OptimisticListAtom<T> {
   }
 }
 
-export const optimisticListAtom = <T>(entityIdKey: keyof T): WritableAtom<T[], ListAction<T>> => {
-  return new OptimisticListAtom<T>(entityIdKey).optimisticAtom;
+export const optimisticListAtom = <T>(entityIdKey: string & keyof T): OptimisticListAtomType<T> => {
+  return new OptimisticListItem<T>(entityIdKey).optimisticAtom;
 }
