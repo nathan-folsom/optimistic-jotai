@@ -4,7 +4,7 @@ export enum ActionType {
   delete,
   update
 }
-type Success = boolean | Promise<boolean>;
+export type Success = true | Promise<boolean>;
 type WithSuccess<T extends Record<string, any>> = T & { success: Success };
 export type BaseAction<T extends ActionType, U> = {
   action: T,
