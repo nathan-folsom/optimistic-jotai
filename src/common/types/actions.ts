@@ -8,12 +8,12 @@ export type Success = true | Promise<boolean>;
 export type BaseAction<T extends ActionType, U> = {
   type: T,
   success: Success,
-  data: U
+  body: U
 }
-export type SetAction<T> = BaseAction<ActionType.set, { value: T }>;
-export type AddAction<T> = BaseAction<ActionType.add, { addition: T }>;
-export type DeleteAction<T> = BaseAction<ActionType.delete, { deletion: T }>;
-export type UpdateAction<T> = BaseAction<ActionType.update, { update: T }>;
+export type SetAction<T> = BaseAction<ActionType.set, T>;
+export type AddAction<T> = BaseAction<ActionType.add, T>;
+export type DeleteAction<T> = BaseAction<ActionType.delete, T>;
+export type UpdateAction<T> = BaseAction<ActionType.update, T>;
 export type Action<Set, Add, Update, Delete> =
   | SetAction<Set>
   | AddAction<Add>

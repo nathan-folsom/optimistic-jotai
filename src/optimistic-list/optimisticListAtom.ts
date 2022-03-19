@@ -22,13 +22,13 @@ class OptimisticListItem<T extends Record<string, any>> {
   private mergeChanges = (action: ListAction<T>, list: T[]): T[] => {
     switch (action.type) {
       case ActionType.add:
-        return this.mergeAdditions(action.data.addition, list);
+        return this.mergeAdditions(action.body, list);
       case ActionType.delete:
-        return this.mergeDeletions(action.data.deletion, list);
+        return this.mergeDeletions(action.body, list);
       case ActionType.set:
-        return this.mergeList(action.data.value);
+        return this.mergeList(action.body);
       case ActionType.update:
-        return this.mergeUpdates(action.data.update, list);
+        return this.mergeUpdates(action.body, list);
     }
   }
 
