@@ -20,7 +20,7 @@ class OptimisticListItem<T extends Record<string, any>> {
   }
 
   private mergeChanges = (action: ListAction<T>, list: T[]): T[] => {
-    switch (action.action) {
+    switch (action.type) {
       case ActionType.add:
         return this.mergeAdditions(action.data.addition, list);
       case ActionType.delete:
@@ -55,7 +55,7 @@ class OptimisticListItem<T extends Record<string, any>> {
 
   private setAtom = (get: Getter, set: Setter, action: ListAction<T>) => {
     set(this.actionAtom, action);
-    this.handleResult(action.data.success, get, set);
+    this.handleResult(action.success, get, set);
   }
 
   private handleResult = async (success: Success, get: Getter, set: Setter) => {

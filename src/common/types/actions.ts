@@ -5,10 +5,10 @@ export enum ActionType {
   update
 }
 export type Success = true | Promise<boolean>;
-type WithSuccess<T extends Record<string, any>> = T & { success: Success };
 export type BaseAction<T extends ActionType, U> = {
-  action: T,
-  data: WithSuccess<U>
+  type: T,
+  success: Success,
+  data: U
 }
 export type SetAction<T> = BaseAction<ActionType.set, { value: T }>;
 export type AddAction<T> = BaseAction<ActionType.add, { addition: T }>;
