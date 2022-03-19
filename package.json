@@ -6,18 +6,26 @@
   "repository": "https://github.com/nathan-folsom/optimistic-jotai.git",
   "author": "Nathan Folsom <n8folsom@gmail.com>",
   "license": "MIT",
-  "files": ["lib/**/*"],
+  "files": [
+    "lib/**/*"
+  ],
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "test": "jest"
   },
   "peerDependencies": {
     "jotai": "^1.6.0",
     "react": "^17.0.2"
   },
   "devDependencies": {
+    "@testing-library/react-hooks": "^7.0.2",
+    "@types/jest": "^27.4.1",
     "@types/react": "^17.0.39",
+    "jest": "^27.5.1",
     "jotai": "^1.6.0",
     "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "ts-jest": "^27.1.3",
     "typescript": "^4.6.2"
   }
 }
